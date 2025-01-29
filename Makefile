@@ -2,7 +2,17 @@ CC = cc
 CFLAGS = -Wall -Werror -Wextra -Ilib/libft -fsanitize=address -g
 NAME = pipex
 
-SRCS = srcs/main.c
+SRCS = srcs/main.c \
+\
+	srcs/exec/path.c \
+	srcs/exec/exec.c \
+\
+	srcs/utils/tab.c \
+\
+	srcs/error/error.c \
+\
+	srcs/pipe/pipe.c \
+	srcs/pipe/file.c \
 
 OBJS = ${SRCS:.c=.o}
 

@@ -39,7 +39,8 @@ CFILES = ft_isalpha.c\
 	 printf/ft_printf.c\
 	 printf/ft_putchar_fdd.c\
 	 printf/ft_putnbr_fdd.c\
-	 printf/ft_putstr_fdd.c
+	 printf/ft_putstr_fdd.c\
+	 get_next_line/get_next_line.c\
 
 BONUS = ft_lstnew_bonus.c\
 	ft_lstadd_front_bonus.c\

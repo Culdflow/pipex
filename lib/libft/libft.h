@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dfeve <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 18:01:07 by dfeve             #+#    #+#             */
-/*   Updated: 2024/11/11 21:16:51 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/28 23:44:47 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -19,6 +20,9 @@
 # include <limits.h>
 # define INTT_MIN -2147483648
 # define SIZEE_MAX 65535
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
 
 typedef struct s_list
 {
@@ -76,4 +80,5 @@ int		ft_printf(const char *str, ...);
 int		ft_itohex(unsigned int i, int maj);
 int		ft_pitohex(unsigned long long i, int maj);
 int		ft_uputnbr_fd(unsigned int n, int fd);
+char	*get_next_line(int fd);
 #endif
