@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 18:30:44 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/29 01:02:36 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/31 01:39:21 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ int	main(int ac, char **argv, char **env)
 	{
 		i = 2;
 		infile = open_file(argv[1], 0);
-		outfile = open_file(argv[ac - 1], 1);
 		dup2(infile, 0);
 	}
 	dup2(infile, 0);
 	while (i < ac - 2)
 		my_pipe(argv[i++], env);
+	if (outfile == 0)
+		outfile = open_file(argv[ac - 1], 1);
 	dup2(outfile, 1);
 	exec(argv[ac - 2], env);
 }

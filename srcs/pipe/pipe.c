@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 22:06:16 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/29 00:03:18 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/29 02:03:02 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	my_pipe(char *cmd, char **env)
 		close(fd[1]);
 		dup2(fd[0], STDIN_FILENO);
 		close(fd[0]);
-		wait(NULL);
+		waitpid(pid, NULL, 0);
 	}
 }

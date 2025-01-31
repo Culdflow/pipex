@@ -6,7 +6,7 @@
 /*   By: dfeve <dfeve@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 22:56:16 by dfeve             #+#    #+#             */
-/*   Updated: 2025/01/29 01:12:32 by dfeve            ###   ########.fr       */
+/*   Updated: 2025/01/30 19:23:12 by dfeve            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,19 @@ int	open_file(char *file, int in_or_out)
 {
 	int	fd;
 
+	fd = 0;
 	if (in_or_out == 0)
 		fd = open(file, O_RDONLY, 0777);
+	if (fd == -1)
+	{
+		error("file invalid\n", 0);
+		fd = STDIN_FILENO;
+	}
 	if (in_or_out == 1)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (in_or_out == 2)
 		fd = open(file, O_WRONLY | O_CREAT | O_APPEND, 0777);
-	if (fd == -1)
-	{
-		error("file invalid", 0);
-		if (in_or_out == 2)
-			fd = STDOUT_FILENO;
-		else
-			fd = STDIN_FILENO;
-	}
 	if (fd < 0)
-		error("file invalid", 1);
+		error("file invalid\n", 1);
 	return (fd);
 }
